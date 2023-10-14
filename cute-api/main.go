@@ -20,7 +20,7 @@ type Author struct {
 }
 
 // fake DB
-var course []Course
+var courses []Course
 
 // middlewares or helper - file
 func (c *Course) isEmpty() bool {
@@ -38,8 +38,29 @@ func serveHome(w http.ResponseWriter, r *http.Request) {
 func getAllCourses(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Get All Courses")
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(course)
+	json.NewEncoder(w).Encode(courses)
 }
+
+func getOneCourse(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Get One Course")
+	w.Header().Set("Content-Type", "application/json")
+
+	//grab id from request
+	params := mux.Vars(r)
+
+	//loop through courses ,find matching id and return the response 
+
+	for _ ,course := range courses {
+		if course.CourseId == params["id"] {
+			json.NewEncoder(w).Encode(course);
+			return 
+		}
+	}
+	json.NewEncoder(w).Encode("No Course found with given id");
+	return
+}
+
+
 
 func main() {
 	fmt.Println("Hello")
