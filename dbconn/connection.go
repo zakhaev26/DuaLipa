@@ -9,7 +9,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-const connectionString = "mongodb+srv://b422056:<password>@testcluster.t47d55j.mongodb.net/?retryWrites=true&w=majority"
+const connectionString = "mongodb+srv://b422056:abrakadabra@testcluster.t47d55j.mongodb.net/?retryWrites=true&w=majority"
 const dbName = "DuaLipaImages"
 const colName = "Picsource"
 
