@@ -5,7 +5,7 @@ const Footer = () => {
     <div>
         <h1>Made Using</h1>  
         <br />
-        <img src="https://skillicons.dev/icons?i=go,nextjs,mongodb,typescript,azure" alt="" />
+        <img src="https://skillicons.dev/icons?i=go,nextjs,mongodb,typescript,docker,azure" alt="" />
         <br />
     </div>
   )
