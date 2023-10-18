@@ -1,5 +1,5 @@
 # server containerization
-FROM golang:1.17
+FROM golang:1.23
 WORKDIR /app
 COPY . .
 RUN go build -o main .
