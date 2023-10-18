@@ -9,6 +9,10 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
+func Home(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("<h1>Welcome to DuaLipa API</h1>"))
+}
+
 func GetAllImages(w http.ResponseWriter, r *http.Request) {
 	var allImages []primitive.M = helper.GetAllImages()
 	json.NewEncoder(w).Encode(allImages)
@@ -28,6 +32,7 @@ func DeleteAll(w http.ResponseWriter, r *http.Request) {
 	}
 	json.NewEncoder(w).Encode(res)
 }
+
 /*
 func UpdateOneImage(w http.ResponseWriter, r *http.Request) {
 
