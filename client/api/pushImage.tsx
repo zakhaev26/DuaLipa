@@ -1,4 +1,4 @@
-const apiUrl :string = "http://localhost:9030/push-one"
+const apiUrl :string = "http://localhost:6969/push-one"
 import duaLipaImage from "@/types"
 async function pushImagetoDB(duaLipaOBJ:duaLipaImage) {
 

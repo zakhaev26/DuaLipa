@@ -16,6 +16,6 @@ func main() {
 	methods := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE", "OPTIONS"})
 	origins := handlers.AllowedOrigins([]string{"*"})
 
-	log.Fatal(http.ListenAndServe(":9030", handlers.CORS(headers, methods, origins)(router)))
+	log.Fatal(http.ListenAndServe(":6969", handlers.CORS(headers, methods, origins)(router)))
 	fmt.Println("API is Live @ http://localhost:9030")
 }

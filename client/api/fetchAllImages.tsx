@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:9030/all-image";
+const apiUrl = "http://localhost:6969/all-image";
 
 async function getImagesAPI() {
     try {
