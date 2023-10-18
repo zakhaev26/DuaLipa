@@ -55,7 +55,7 @@ export default function Home() {
     <h1 style={{fontSize:20,marginTop:20}}>Worship The Goddess.</h1><br/>
     <input onChange={(e)=>handleChange(e,setImgUrl)} value={imgUrl} type="text" placeholder='Enter Dua Lipa Pic *Link*' accept='' style={{backgroundColor:"white",borderRadius:2}}/>&nbsp;&nbsp;&nbsp;
     <input onChange={(e)=>handleChange(e,setUploader)} type="text" placeholder='Your Name' style={{backgroundColor:"white",borderRadius:2}}/><br/><br/>
-    <button onClick={handleClick} style={{backgroundColor:"white",borderRadius:1.5}}>Upload!</button>
+    <button onClick={handleClick} style={{backgroundColor:"grey",borderRadius:1.5}}>Upload!</button>
     {
       images.map((image:duaLipaImage,index:number)=>(
         <div>

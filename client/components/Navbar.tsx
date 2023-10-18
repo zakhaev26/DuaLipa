@@ -17,7 +17,7 @@ function Nav() {
                   alt="ICO"
                   style={{borderRadius:10}}
                 />&nbsp;&nbsp;&nbsp;
-                <p style={{paddingTop:"40"}}>DuAPI</p>
+                <p style={{paddingTop:"40"}}>Dua Lipa API</p>
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
