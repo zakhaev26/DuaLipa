@@ -10,13 +10,14 @@ function Nav() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 flex">
                 <img
                   className="h-8 w-8 "
                   src="https://images.hellomagazine.com/horizon/square/1efe8d61f1e5-dua-lipa-jingle-ball.jpg"
                   alt="ICO"
                   style={{borderRadius:10}}
-                />
+                />&nbsp;&nbsp;&nbsp;
+                <p style={{paddingTop:"40"}}>DuAPI</p>
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
@@ -96,38 +97,17 @@ function Nav() {
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a
-                  href="#"
+                  href="https://www.instagram.com/soubhikgon_/"
                   className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
-                  Dashboard
+                  Insta
                 </a>
 
                 <a
-                  href="#"
+                  href="https://github.com/zakhaev26/dualipa"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
-                  Team
-                </a>
-
-                <a
-                  href="#"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Projects
-                </a>
-
-                <a
-                  href="#"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Calendar
-                </a>
-
-                <a
-                  href="#"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Reports
+                  Git Repo
                 </a>
               </div>
             </div>
