@@ -6,7 +6,6 @@ async function getImagesAPI() {
             method:"GET"
             })
         const data = await response.json()
-        console.log(data);
         return data;
     }catch(e:any) {
         console.log(e.message);
