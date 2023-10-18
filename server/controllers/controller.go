@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"net/http"
 
-	hanErr "github.com/zakhaev26/dualipa/errors"
 	helper "github.com/zakhaev26/dualipa/helpers"
 	model "github.com/zakhaev26/dualipa/models"
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -17,7 +16,23 @@ func GetAllImages(w http.ResponseWriter, r *http.Request) {
 
 func PushOneImage(w http.ResponseWriter, r *http.Request) {
 	var dua model.DuaLipa
-	err := json.NewDecoder(r).Decode(&dua)
-	hanErr.
-
+	_ = json.NewDecoder(r.Body).Decode(&dua)
+	helper.InsertOneImage(dua)
+	json.NewEncoder(w).Encode(dua)
 }
+
+func DeleteAll(w http.ResponseWriter, r *http.Request) {
+	num := helper.DeleteAllImage()
+	var res = map[string]int{
+		"deletedCount": num,
+	}
+	json.NewEncoder(w).Encode(res)
+}
+/*
+func UpdateOneImage(w http.ResponseWriter, r *http.Request) {
+
+	var dua model.DuaLipa
+	_ = json.NewDecoder(r.Body).Decode(&dua)
+	// helper.UpdateOneImage((dua.ID),dua.ImgSrc)
+}
+*/
