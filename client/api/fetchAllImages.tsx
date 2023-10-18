@@ -1,11 +1,17 @@
-import React from 'react'
+const apiUrl = "http://localhost:9030/all-image";
 
-const fetchAllImages = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+async function getImagesAPI() {
+    try {
+        const response = await fetch(apiUrl,{
+            method:"GET"
+            })
+        const data = await response.json()
+        console.log(data);
+        return data;
+    }catch(e:any) {
+        console.log(e.message);
+    }
+
 }
 
-export default fetchAllImages
+export default getImagesAPI
