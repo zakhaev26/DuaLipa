@@ -1,7 +1,7 @@
 "use client"
 import getImagesAPI from '@/api/fetchAllImages'
 import {useEffect,useState} from "react";
-
+import duaLipaImage from '@/types';
 export default function Home() {
 
   const [images,setImages] = useState([]);
@@ -26,7 +26,7 @@ export default function Home() {
     <input type="text" placeholder='Your Name' style={{backgroundColor:"white",borderRadius:2}}/><br/><br/>
     <button style={{backgroundColor:"white",borderRadius:1.5}}>Upload!</button>
     {
-      images.map((image,index)=>(
+      images.map((image:duaLipaImage,index:number)=>(
         <div>
         <img key={index} src={image.imgsrc} alt='Dua Pic' style={{maxWidth:"60%",margin:"20px"}} />
         <p>Uploaded By: {image.uploadedby}</p>
