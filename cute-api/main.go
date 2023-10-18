@@ -5,9 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"math/rand"
 	"net/http"
-	// "strconv"
-	// "time"
+	"strconv"
+	"time"
 
 	"github.com/gorilla/mux"
 )
@@ -16,7 +17,7 @@ import (
 type Course struct {
 	CourseId    string  `json:"courseid"`
 	CourseName  string  `json:"coursename"`
-	CoursePrice string  `json:"price"`
+	CoursePrice int     `json:"price"`
 	Author      *Author `json:"author"`
 }
 
@@ -26,7 +27,7 @@ type Author struct {
 }
 
 // fake DB
-var courses []Course= {}
+var courses []Course
 
 // middlewares or helper - file
 func (c *Course) isEmpty() bool {
@@ -38,7 +39,16 @@ func main() {
 	fmt.Println("starting server")
 	r := mux.NewRouter()
 
-	r.HandleFunc("/", serveHome)
+	//seeding
+	courses = append(courses, Course{CourseId: "2", CourseName: "React.js", CoursePrice: 299, Author: &Author{Fullname: "Soubhik Gon", Website: "b422056"}})
+	courses = append(courses, Course{CourseId: "3", CourseName: "Next.js", CoursePrice: 399, Author: &Author{Fullname: "Not Soubhik Gon", Website: "b422056!"}})
+
+	r.HandleFunc("/", serveHome).Methods("GET")
+	r.HandleFunc("/courses", getAllCourses).Methods("GET")
+	r.HandleFunc("/course/{id}", getOneCourse).Methods("GET")
+	r.HandleFunc("/course", createOneCourse).Methods("POST")
+	r.HandleFunc("/course/{id}", updateOneCourse).Methods("PUT")
+	r.HandleFunc("/del/course", deleteAllCourses).Methods("GET")
 	log.Fatal(http.ListenAndServe(":4200", r))
 }
 
@@ -97,9 +107,11 @@ func createOneCourse(w http.ResponseWriter, r *http.Request) {
 	//generate unique id , string
 	//append course into courses
 
-	// rand.Seed(time.Now().UnixNano())
-	// course.CourseId = strconv.Itoa(rand.Intn(100))
-	// courses = append(courses, course)
+	rand.Seed(time.Now().UnixNano())
+	randomInt := rand.Intn(100)
+	fmt.Println("RandomID ", randomInt)
+	course.CourseId = strconv.Itoa(randomInt)
+	courses = append(courses, course)
 	json.NewEncoder(w).Encode(course)
 	return
 }
@@ -122,4 +134,9 @@ func updateOneCourse(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
+}
+
+func deleteAllCourses(w http.ResponseWriter, r *http.Request) {
+	courses = append(courses, courses[:0]...)
+	w.Write([]byte("<h1>Done~</h1>"))
 }
