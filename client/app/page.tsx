@@ -84,7 +84,7 @@ export default function Home() {
         <div>
           <ToastContainer />
           <img
-            key={image._id}
+            key={new Date().getMilliseconds().toLocaleString()}
             src={image.imgsrc}
             alt="Dua Pic"
             style={{ maxWidth: "50%", maxHeight: "300px", margin: "20px" }}
