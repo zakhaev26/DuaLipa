@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:6969/all-image";
+const apiUrl = "https://dua-api.onrender.com/all-image";
 
 async function getImagesAPI() {
     try {
