@@ -80,11 +80,10 @@ export default function Home() {
       >
         Upload!
       </button>
+      <ToastContainer />
       {images.map((image: duaLipaImage, index: number) => (
-        <div>
-          <ToastContainer />
+        <div key={index}>
           <img
-            key={new Date().getMilliseconds().toLocaleString()}
             src={image.imgsrc}
             alt="Dua Pic"
             style={{ maxWidth: "50%", maxHeight: "300px", margin: "20px" }}
