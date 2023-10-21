@@ -64,7 +64,8 @@ export default function Home() {
         accept=""
         style={{ backgroundColor: "white", borderRadius: 2 }}
       />
-      &nbsp;&nbsp;&nbsp;
+<br />
+<br />
       <input
         onChange={(e) => handleChange(e, setUploader)}
         type="text"
