@@ -66,6 +66,8 @@ export default function Home() {
       />
 <br />
 <br />
+<br />
+<br />
       <input
         onChange={(e) => handleChange(e, setUploader)}
         type="text"
