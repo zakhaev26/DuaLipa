@@ -1,13 +1,12 @@
 "use client";
 import getImagesAPI from "@/api/fetchAllImages";
 import { useEffect, useState } from "react";
-import duaLipaImage from "@/types";
 import pushImagetoDB from "@/api/pushImage";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "@/components/Footer";
 export default function Home() {
-  const notify = (message: string) => toast(message);
+  const notify = (message) => toast(message);
   const [images, setImages] = useState([]);
   const [imgUrl, setImgUrl] = useState("");
   const [uploader, setUploader] = useState("");
@@ -18,14 +17,14 @@ export default function Home() {
         const res = await getImagesAPI();
         console.log("Done", res);
         setImages(res);
-      } catch (e: any) {
+      } catch (e) {
         console.log(e.message);
       }
     }
     callAPI();
   }, []);
 
-  function handleChange(event: any, setter: any) {
+  function handleChange(event, setter) {
     setter(event.target.value);
   }
 
@@ -35,7 +34,7 @@ export default function Home() {
       notify("Please Fill up the fields Correctly and then Submit.");
       return;
     }
-    let duaLipaOBJ: duaLipaImage = {
+    let duaLipaOBJ = {
       imgsrc: imgUrl,
       uploadedby: uploader,
     };
@@ -45,7 +44,7 @@ export default function Home() {
       notify("Posted.Refresh!");
       setImgUrl("");
       setUploader("");
-    } catch (e: any) {
+    } catch (e) {
       console.log(e.message);
     }
   }
@@ -81,7 +80,7 @@ export default function Home() {
         Upload!
       </button>
       <ToastContainer />
-      {images.map((image: duaLipaImage, index: number) => (
+      {images.map((image, index) => (
         <div key={index}>
           <img
             src={image.imgsrc}
