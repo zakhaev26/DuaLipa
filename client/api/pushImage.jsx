@@ -1,6 +1,5 @@
-const apiUrl :string = "https://dua-api.onrender.com/push-one"
-import duaLipaImage from "@/types"
-async function pushImagetoDB(duaLipaOBJ:duaLipaImage) {
+const apiUrl = "https://dua-api.onrender.com/push-one"
+async function pushImagetoDB(duaLipaOBJ) {
 
     try {
         const res = await fetch(apiUrl,{
@@ -14,7 +13,7 @@ async function pushImagetoDB(duaLipaOBJ:duaLipaImage) {
         })
         const data = await res.json();
         console.log("POSTED ::",data);
-    }catch(e:any) {
+    }catch(e) {
         console.log(e.message);
     }
 
